@@ -1,0 +1,27 @@
+{
+  "name": "mytube",
+  "version": "1.0.0",
+  "description": "clonetube myself",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Strongorange/mytube.git"
+  },
+  "scripts": {
+    "dev": "nodemon --exec babel-node index.js"
+  },
+  "author": "Chanhwi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Strongorange/mytube/issues"
+  },
+  "homepage": "https://github.com/Strongorange/mytube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "nodemon": "^2.0.7"
+  }
+}

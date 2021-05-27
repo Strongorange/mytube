@@ -7,8 +7,10 @@ import userRouter from "./routers/userRouter";
 const PORT = 5000;
 
 const app = express();
-app.use(morgan("dev"));
 
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
+app.use(morgan("dev"));
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);

@@ -1,7 +1,10 @@
 extends base.pug
-
-block head 
-    title Home | Mytube
+include mixins/video
 
 block content
-    h1  Home!
+    h2 Welcome This is Trending Videos
+    
+    each video in videos
+        +video(video)
+    else 
+        li Sorry Nothing Found.

@@ -15,10 +15,6 @@ export const watch = (req, res) => {
 };
 
 export const getEdit = (req, res) => {
-  const {
-    params: { id },
-  } = req;
-
   return res.render("edit", { pageTitle: `Editing:` });
 };
 

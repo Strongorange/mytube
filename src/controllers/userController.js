@@ -1,5 +1,25 @@
-export const seeUser = (req, res) => res.send("SEE USER");
-export const seeProfile = (req, res) => res.send("SEE PROFILE");
-export const editProfile = (req, res) => res.send("EDIT PROFILE");
-export const join = (req, res) => res.send("JOIN");
-export const login = (req, res) => res.send("LOGIN");
+export const seeUser = (req, res) => {
+  res.render("seeuser", {
+    pageTitle: "See User",
+  });
+};
+export const seeProfile = (req, res) => {
+  res.render("seeprofile", {
+    pageTitle: "User Profile",
+  });
+};
+export const editProfile = (req, res) => {
+  res.render("editstory", {
+    pageTitle: "Edit Profile",
+  });
+};
+export const join = (req, res) => {
+  res.render("join", {
+    pageTitle: "Join",
+  });
+};
+export const login = (req, res) => {
+  res.render("login", {
+    pageTitle: "Log In",
+  });
+};

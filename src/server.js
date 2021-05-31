@@ -13,6 +13,9 @@ app.use(timeLogger);
 app.use(protocolLogger);
 app.use(protector);
 
+app.set("views", process.cwd() + "/src/views");
+app.set("view engine", "pug");
+
 app.use("/", globalRouter);
 app.use("/users", userRouter);
 app.use("/stories", storyRouter);

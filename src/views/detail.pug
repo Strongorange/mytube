@@ -1,0 +1,11 @@
+extends base
+include ./mixins/genre.pug
+
+block content 
+    div 
+        span=movie.summary 
+
+    each genre in genres
+        +genre(genre)
+    else 
+        li Sorry Nothing Found.

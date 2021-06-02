@@ -1,27 +1,14 @@
 import express from "express";
-import { logger, protector, protocolLogger, timeLogger } from "./middlewares";
-import globalRouter from "./routers/globalRouter";
-import storyRouter from "./routers/storyRouter";
-import userRouter from "./routers/userRouter";
+import path from "path";
+import "./db";
+import movieRouter from "./movieRouter";
 
 const PORT = 5000;
 
 const app = express();
-
-app.use(logger);
-app.use(timeLogger);
-app.use(protocolLogger);
-app.use(protector);
-
-app.set("views", process.cwd() + "/src/views");
 app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
+app.use("/", movieRouter);
 
-app.use("/", globalRouter);
-app.use("/users", userRouter);
-app.use("/stories", storyRouter);
-
-const handleListening = () => {
-  console.log(`✅ server listening on port http://localhost:${PORT}`);
-};
-
-app.listen(PORT, handleListening);
+// Codesanbox does not need PORT :)
+app.listen(PORT, () => console.log(`✅  Server Ready!`));

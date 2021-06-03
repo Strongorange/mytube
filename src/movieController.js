@@ -1,48 +1,20 @@
-import {
-  getMovieById,
-  getMovies,
-  getMovieByMinimumRating,
-  getMovieByMinimumYear,
-} from "./db";
+import { getMovieById, getMovies, addMovie } from "./db";
 
-let whichOne;
-let laterMovies = [];
-let ratedMovies = [];
+export const home = (req, res) =>
+  res.render("movies", { movies: getMovies(), pageTitle: "Movies!" });
 
-export const home = async (req, res) => {
-  const movies = await getMovies();
-  // console.log(movies);
-  return res.render("home", { pageTitle: "Movies!", movies });
-};
-
-export const movieDetail = async (req, res) => {
-  const { id } = req.params;
-  const movie = await getMovieById(id);
-  console.log(movie);
-  return res.render("detail", {
-    pageTitle: movie.title,
-    movie,
-    genres: movie.genres,
-  });
-};
-
-export const filterMovie = async (req, res) => {
-  const { year, rating } = req.query;
-
-  if (rating) {
-    ratedMovies = await getMovieByMinimumRating(rating);
-    whichOne = "rating";
-    return res.render("search", {
-      pageTitle: `Search by rating`,
-      movies: ratedMovies,
-    });
+export const movieDetail = (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  const movie = getMovieById(id);
+  if (!movie) {
+    res.render("404", { pageTitle: "Movie not found" });
   }
-  if (year) {
-    laterMovies = await getMovieByMinimumYear(year);
-    whichOne = "year";
-    return res.render("search", {
-      pageTitle: `Search by year`,
-      movies: laterMovies,
-    });
-  }
+  return res.render("detail", { movie });
 };
+
+/*
+Write the controller or controllers you need to render the form
+and to handle the submission
+*/

@@ -1,11 +1,12 @@
 import "./db";
+import "./models/Movie";
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
 import movieRouter from "./movieRouter";
 import { localsMiddleware } from "./middlewares";
 
-const PORT = 5000;
+const PORT = 5300;
 
 const app = express();
 app.set("view engine", "pug");

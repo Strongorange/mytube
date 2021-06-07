@@ -1,46 +1,10 @@
-import { getMovieById, getMovies, addMovie } from "./db";
-
-let newGenres = [];
-
-export const home = (req, res) =>
-  res.render("movies", { movies: getMovies(), pageTitle: "Movies!" });
-
-export const movieDetail = (req, res) => {
-  const {
-    params: { id },
-  } = req;
-  const movie = getMovieById(id);
-  if (!movie) {
-    res.render("404", { pageTitle: "Movie not found" });
-  }
-  return res.render("detail", { movie });
-};
-
 /*
-Write the controller or controllers you need to render the form
-and to handle the submission
+You DONT have to import the Movie with your username.
+Because it's a default export we can nickname it whatever we want.
+So import Movie from "./models"; will work!
+You can do Movie.find() or whatever you need like normal!
 */
+import Movie from "./models/Movie";
 
-export const getUpload = (req, res) => {
-  res.render("upload", { pageTitle: "Add Movie!" });
-};
+// Add your magic here!
 
-export const postUpload = (req, res) => {
-  const newMovie = {
-    title: "",
-    synopsis: "",
-    genres: [],
-  };
-  newGenres = [];
-  const { title, synopsis, genres } = req.body;
-
-  newMovie.title = title;
-  newMovie.synopsis = synopsis;
-  newMovie.genres.push(genres);
-
-  console.log(newMovie);
-
-  addMovie(newMovie);
-
-  res.redirect("/");
-};

@@ -1,9 +1,0 @@
-extends base.pug
-include ./mixins/movie.pug
-
-block content
-  include ./partials/form
-
-  each movie in movies
-    +movie(movie)
-  

@@ -7,10 +7,15 @@ html(lang="ko")
     body 
         header 
             h1=pageTitle
+            block search
             nav 
                 ul 
                     li
+                        a(href="/")="Home"
+                    li
                         a(href="/upload")="Upload"
+                    li
+                        a(href="/search")="Search"
                 
         main 
             block content 

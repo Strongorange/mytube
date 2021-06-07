@@ -1,6 +1,9 @@
 extends layouts/layout.pug
 include mixins/movie.pug
 
+block search
+    
+
 block content
     each movie in movies
         +movie(movie)

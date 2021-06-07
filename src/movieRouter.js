@@ -6,7 +6,8 @@ import {
   movieDetail,
   deleteMovie,
   getEdit,
-  putEdit,
+  postEdit,
+  search,
 } from "./movieController";
 
 const movieRouter = express.Router();
@@ -15,8 +16,9 @@ const movieRouter = express.Router();
 
 movieRouter.get("/", handleHome);
 movieRouter.route("/upload").get(getUpload).post(postUpload);
+movieRouter.get("/search", search);
 movieRouter.get("/movies/:id", movieDetail);
 movieRouter.get("/movies/:id/delete", deleteMovie);
-movieRouter.route("/movies/:id/edit").get(getEdit).put(putEdit);
+movieRouter.route("/movies/:id/edit").get(getEdit).post(postEdit);
 
 export default movieRouter;

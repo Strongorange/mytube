@@ -1,1 +1,10 @@
 extends layouts/layout.pug
+
+block content
+    form(method="POST")
+        input(type="text", placeholder="Title", name="title", value=`${movie.title}`, required)
+        input(type="text", placeholder="Summary", name="summary", value=`${movie.summary}`, required)
+        input(type="text", placeholder="Year", name="year", value=`${movie.year}`, required)
+        input(type="number", placeholder="Rating", name="rating", value=`${movie.rating}`,required)
+        input(type="text", placeholder="Genres, seperat by ,", value=`${movie.genres}`, name="genres")
+        input(type="submit", value="edit")

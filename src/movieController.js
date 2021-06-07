@@ -45,10 +45,41 @@ export const deleteMovie = async (req, res) => {
   res.redirect("/");
 };
 
-export const getEdit = (req, res) => {
-  res.render("edit", { pageTitle: "Edit" });
+export const getEdit = async (req, res) => {
+  const { id } = req.params;
+  const movie = await Movie.findById(id);
+  res.render("edit", { pageTitle: "Edit", movie });
 };
 
-export const putEdit = (req, res) => {
-  res.send("put edit", { pageTitle });
+export const postEdit = async (req, res) => {
+  const {
+    params: { id },
+    body: { title, summary, year, rating, genres },
+  } = req;
+  await Movie.findByIdAndUpdate(id, {
+    title,
+    summary,
+    year,
+    rating,
+    genres: genres.split(","),
+  });
+  res.redirect("/");
+};
+
+export const search = async (req, res) => {
+  const {
+    query: { searchTitle },
+  } = req;
+
+  let movies = [];
+
+  if (searchTitle) {
+    movies = await Movie.find({
+      title: {
+        $regex: new RegExp(searchTitle, "i"),
+      },
+    });
+  }
+
+  res.render("search", { pageTitle: "Search", movies });
 };

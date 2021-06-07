@@ -1,0 +1,18 @@
+extends layouts/layout.pug
+
+block content
+    h1=movie.title 
+    p=movie.summary 
+    p=movie.year 
+    p=movie.rating 
+
+    if movie.genres
+        each genre in movie.genres
+            li=genre 
+
+    div
+        form(action=`/movies/${movie._id}/delete`, method="GET") 
+            input(type="submit", value="Delete Video")
+    div
+       form(action=`/movies/${movie._id}/edit`, method="GET") 
+            input(type="submit", value="Edit Video")                 

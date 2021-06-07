@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import movieRouter from "./movieRouter";
 import { localsMiddleware } from "./middlewares";
 
-const PORT = 5300;
+const PORT = 5700;
 
 const app = express();
 app.set("view engine", "pug");
@@ -16,4 +16,4 @@ app.use(localsMiddleware);
 app.use("/", movieRouter);
 
 // Codesanbox does not need PORT :)
-app.listen(PORT, () => console.log(`✅  Server Ready!`));
+app.listen(PORT, () => console.log(`✅ ${PORT} Server Ready!`));

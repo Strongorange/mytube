@@ -1,0 +1,10 @@
+extends layouts/layout.pug
+
+block content
+    form(method="POST")
+        input(type="text", placeholder="Title", name="title", required)
+        input(type="text", placeholder="Summary", name="summary", required)
+        input(type="text", placeholder="Year", name="year", required)
+        input(type="number", placeholder="Rating", name="rating", required)
+        input(type="text", placeholder="Genres, seperat by ,", name="genres")
+        input(type="submit", value="upload")

@@ -33,15 +33,18 @@ export const postEdit = async (req, res) => {
     params: { id },
     body: { title, description, hashtags },
   } = req;
-  const video = await Video.findById(id);
+  const video = await Video.exists({ _id: id });
   if (!video) {
     return res.render("404", { pageTitle: "Video Not Found" });
   }
-  video.title = title;
-  video.description = description;
-  video.hashtags = hashtags
-    .split(",")
-    .map((word) => (word.startsWith("#") ? word : `#${word}`));
+  await Video.findByIdAndUpdate(id, {
+    title,
+    description,
+    hashtags: hashtags
+      .split(",")
+      .map((word) => (word.startsWith("#") ? word : `#${word}`)),
+  });
+
   return res.redirect(`/videos/${id}`);
 };
 

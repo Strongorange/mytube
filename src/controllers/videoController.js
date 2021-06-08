@@ -2,7 +2,7 @@ import Video, { formatHashtags } from "../models/Video";
 // Video.find({}, (error, videos) => {});
 
 export const home = async (req, res) => {
-  const videos = await Video.find({});
+  const videos = await Video.find({}).sort({ createdAt: "desc" });
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -74,4 +74,21 @@ export const deleteVideo = async (req, res) => {
   } = req;
   await Video.findByIdAndDelete(id);
   return res.redirect("/");
+};
+
+export const search = async (req, res) => {
+  let videos = [];
+  const {
+    query: { keyword },
+  } = req;
+  if (keyword) {
+    videos = await Video.find({
+      title: {
+        $regex: new RegExp(keyword, "i"), //keyword 를 포함하는 것
+        // $regex: new RegExp(`^${keyword}`, "i"), //keyword 로 시작하는 것
+        // $regex: new RegExp(`${keyword}$`, "i"), //keyword 로 끝나는 것
+      },
+    });
+  }
+  return res.render("search", { pageTitle: "Search", videos });
 };

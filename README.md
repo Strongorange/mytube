@@ -22,3 +22,12 @@ Video 모델만 임포트하면 자동으로 딸려오기에 유용
 watch 에서 딜리트 앵커 추가
 라우터 컨트롤러 추가
 findOneAndRemove 와 Delete 의 차이? => 그냥 Delete 사용
+
+6-26
+비디오가 최신일수록 위로오게 정렬
+home에서 .sort({createdAt: "desc"}) 사용
+search 라우터 템플릿 만들고 인풋값 쿼리로 받음
+빈 배열을 만들어서 비디오들을 집어넣음!
+믹스인 사용해서 표기
+정규포현식 사용!!
+https://docs.mongodb.com/manual/reference/operator/query/regex/

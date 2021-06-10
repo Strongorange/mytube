@@ -37,3 +37,8 @@ https://docs.mongodb.com/manual/reference/operator/query/regex/
 글로벌 => 루트 라우터 이름변경
 getJoin postJoin 만듬
 Join 템플릿
+
+7-1
+유저를 생성하고 생성 후 /login 으로 리다이렉트
+
+7-2

@@ -31,3 +31,9 @@ search 라우터 템플릿 만들고 인풋값 쿼리로 받음
 믹스인 사용해서 표기
 정규포현식 사용!!
 https://docs.mongodb.com/manual/reference/operator/query/regex/
+
+7-0
+유저 모델 생성하고 init에서 임포트
+글로벌 => 루트 라우터 이름변경
+getJoin postJoin 만듬
+Join 템플릿

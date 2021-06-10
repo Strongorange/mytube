@@ -61,3 +61,8 @@ status code
 400 번
 오류나도 200 보내서 브라우저가 비밀번호 저장하려 함
 400번 사용
+
+7-5
+try catch 사용해 오류 발생시 잡음 error.\_message 로 내용 표시
+login 라우터 ,getLogin, postLogin 템플릿 생성
+post 컨트롤러에 유저네임에 일치하는 유저 확인 후 없으면 오류 렌더

@@ -42,6 +42,7 @@ Join 템플릿
 유저를 생성하고 생성 후 /login 으로 리다이렉트
 
 7-2
+https://www.npmjs.com/package/bcrypt
 bcrypt 로 비밀번호 해싱
 user 모델에 .pre("save) 를 이용해서 저장전에 비밀번호를 해싱
 
@@ -66,3 +67,9 @@ status code
 try catch 사용해 오류 발생시 잡음 error.\_message 로 내용 표시
 login 라우터 ,getLogin, postLogin 템플릿 생성
 post 컨트롤러에 유저네임에 일치하는 유저 확인 후 없으면 오류 렌더
+
+7-6
+bcrupt compare() 사용해서 비밀번호 확인 => boolean 을 return
+https://www.npmjs.com/package/bcrypt
+username 과 일치하는 유저를 찾는데 위에서 exists 를 사용하고 있으니 exists 부분을 그냥 user object를 찾는거로 바꿈
+해서 ok 에 불리언 값 받음 compare(입력 비번, db의 user의 비번) 사용

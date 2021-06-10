@@ -113,3 +113,15 @@ userController 에서 누군가 login 을하면 해당 세션에 loggedIn = true
 각 브라우저마다 서로 다른 세션을 가지고있다는 것을 꼭 기억!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 그럼 템플릿에서 로그인되었으면 Join 과 login 을 가리고 logout 을 표시
 템플릿에서 세션에 접근하는 법은?
+
+7-10
+템플릿에서 res 오브젝트의 locals object 에 접근 기본적으로 가능
+res.locals.pretty = "noru";
+템플릿에서 #{pretty} 하면 noru 출력!!!!! 매우 간단하게 사용 가능
+locals 에 로그인 한 사용자 추가 => 모든 템플릿이 로그인 한 유저 정보 인지
+locals 미들웨어를 생성 후 익스포트 그리고 server 에서 임포트
+locals 에 사이트 네임 저장하고 베이스 템플릿에서 사이트네임 사용
+locals 에 loggedIn 을 boolean 으로 판단 req.session.loggedIn 에서 가져옴
+베이스 템플릿에서 로그인 중이라면 로그아웃을 아니라면 jon login 보이게 함
+locals에 loggedInUser 를 세션 유저를 집어넣음
+템플릿에서 로그인 되었다면 user의 name의 프로파일로 가는 버튼 추가!

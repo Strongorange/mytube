@@ -125,3 +125,7 @@ locals 에 loggedIn 을 boolean 으로 판단 req.session.loggedIn 에서 가져
 베이스 템플릿에서 로그인 중이라면 로그아웃을 아니라면 jon login 보이게 함
 locals에 loggedInUser 를 세션 유저를 집어넣음
 템플릿에서 로그인 되었다면 user의 name의 프로파일로 가는 버튼 추가!
+
+7-11
+현재는 서버 재시작하면 session 을 저장하고있는 session store 가 초기화되서 모든 로그인이 끊김
+=> mongoDB 에 session store를 저장해서 다음에 해결

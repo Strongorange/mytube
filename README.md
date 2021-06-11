@@ -210,3 +210,28 @@ authorize 버튼을 누르면 우리가 설정했던 (oauth 앱에서 설정한)
 이제 해당 라우터를 만들어줌
 oauthi 앱 콜백을 http://localhost:5000/users/github/finish 로
 finish 라우터와 컨트롤러 만듬
+
+7-18
+깃허브에서 우리 사이트로 다시 리다이렉팅함 깃허브에서 받은 코드를 Access 토큰으로 바꿔야함
+POST https://github.com/login/oauth/access_token  
+주소로 파라메터들과 포스트 요청
+코드는 url에 잇고 클라이언트 아이디는 있고 클라이언트 시크릿은 이제 생성
+클라이언트 아이디를 .env에 저장
+깃허브 앱 SECRET 도 ENV에 저장
+finishGithubLogin 에 앞에처럼 config 저장
+URLSearchparameter 이용해서 앞 처럼 URL 생성
+이제 POST 요청을 보내야하는데 FORM 에서 보내는건 했는데 컨트롤러 내에서는 어떻게할까?
+=> fetch 사용!
+const data = await fetch(finalUrl, {
+headers: {
+Accept: "application/json",
+},
+method: "POST",
+});
+
+const json = await data.json();
+
+};
+header 부분은 json을 받기위해서 추가 이렇게해야 json을 받을 수 있음
+
+근데 fetch는 NodeJs 에서는 기본적으로 사용 불가능

@@ -235,3 +235,16 @@ const json = await data.json();
 header 부분은 json을 받기위해서 추가 이렇게해야 json을 받을 수 있음
 
 근데 fetch는 NodeJs 에서는 기본적으로 사용 불가능
+
+7-19
+npm i node-fetch
+이제 깃허브 서버에 POST를 보내서 데이터들을 잘 가져옴
+이제 access_token 을 가지고 API에 접근
+JSON 에서 access_token 추출
+if("access_token" in json) 문법을 사용!!!! json 안에 access_token 이 있는경우
+3단계서는 url에 get request를 전송 fetch 를 사용함 header 에 Authorization (문서 참조)
+await 안에 await 사용해서 tokenRequest json을 생성 ==>>>> 계속 보면서 이해하기
+tokenRequest 안에 access_token 있을때로 조건문 수정
+조건문 안에도 await 안에 await => fetch 요청이 돌아오면 해당 fetch의 json을 받는 개념
+
+다 가져옴! 근데 email 이 null 값임 => email이 없거나 private 인 경우 => 다른 request 를 만듬

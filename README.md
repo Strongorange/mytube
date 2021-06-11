@@ -136,3 +136,9 @@ session id 는 쿠기에 저장하지만 데이터 자체는 서버에 저장
 https://www.npmjs.com/package/connect-mongo
 DB 에 sessions 콜렉션이 생김
 이제 서버 재시작해도 session 이 남아있음
+
+7-13
+그런데 쿠키를 지우고 새로고침하면 새로운 쿠키와 세션이 생성됨
+그런데 봇이나 로그인하지 않고 구경만하는 사람들이 방문해도 즉 모든 사용자에게 쿠키와 세션이 만들어짐 => DB 낭비, 손해
+로그인한 사용자의 세션만 저장하는게 경제적, 효과적
+resave, Uninitial 어쩌고 => false로 하면 이렇게 됨

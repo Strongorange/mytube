@@ -142,3 +142,20 @@ DB 에 sessions 콜렉션이 생김
 그런데 봇이나 로그인하지 않고 구경만하는 사람들이 방문해도 즉 모든 사용자에게 쿠키와 세션이 만들어짐 => DB 낭비, 손해
 로그인한 사용자의 세션만 저장하는게 경제적, 효과적
 resave, Uninitial 어쩌고 => false로 하면 이렇게 됨
+
+7-14
+쿠키의 property f12 콘솔 쿠키의 프로퍼티
+secret 은 우리가 쿠키에 sign 할떄 사용하는 string
+우리 backend 가 아이디를 줬다는 것을 증명할떄 쓰임
+Domain 쿠키를 만든 backend 가 누구인지 알려줌
+path는 그냥 url
+expires 는 말 그대로 만료되는 기간
+max-age 만료 일자
+cookie: {
+maxAge: 20000 => 20초 (MS로 계산)
+}
+우리는 STORE URL 과 SECRET 을 보호해야함 코드에서 사용하지만 값은 안보이게 할 수 있음
+최상위 경로에 .env 파일 생성, gitignore 에 .env 추가
+.env에 코드에 들어가면 안되는 값을 넣음 (secret) 관습적으로 .env 안에는 모드ㅜ 대문자로 작성
+어떻게 .env에 접근할까?
+process.env.DB_URL 처럼 사용 => 에러 발생 무언가를 해야하는 듯

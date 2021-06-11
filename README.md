@@ -277,3 +277,12 @@ userData 객체에있는 정보를 가지고 유저 생성!
 유저 모델에 socialOnly 추가 => 유저가 깃허브로 로그인하는지 username 으로 로그인하는지 관리
 깃허브로 계정이 생성되면 socialOnly true
 근데 이렇게 하니 password 가 모델에서 required 로 설정되서 오류 => false로 바꿈
+
+7-22
+socialOnly true 를 가진 유저는 password 로 로그인 할 수 없음
+=> postLogin 컨트롤러에서 username 을 가진 유저를 찾을때 socialOnly false 인 것도 고려해줘야함
+다시 finishLogin 에서 let user 로 바꾸고 구조 수정
+
+userData 에 존재하는 avatarUrl 을 user 모델에 추가하고 깃허브 유저를 만들떄 avatarURL 도 저장되게 만듬
+
+라우터와 컨트롤러 만들고 req.session.destroy(); 로 세션을 없애 로그아웃!

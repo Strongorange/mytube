@@ -188,3 +188,25 @@ authorization callback url 에는 아무거나 넣얻 되는데 http://localhost
    scope를 이용해서 정보 더 요구 space-delimited (공백으로 구분되는)
    https://github.com/login/oauth/authorize?client_id=ccf7238f01d21f284b48&allow_signup=false
    &allow_signup=false 을 붙이면 깃허브 계정생성이 안 뜸 이미 있는 유저만 로그인 가능
+
+7-17
+https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps
+scope 유저에게 얼마나 많이 정보를 읽어내고 어떤 정보를 가져올 것인가
+read:user, user:email 정도면 될 듯
+https://github.com/login/oauth/authorize?client_id=ccf7238f01d21f284b48&allow_signup=false&scope=user:email
+이메일 읽기 요청
+스코프 추가시 공백으로 구분하면 됨 (space-delimited)
+https://github.com/login/oauth/authorize?client_id=ccf7238f01d21f284b48&allow_signup=false&scope=user:email read:user
+
+근데 이렇게 긴 URL을 계속해서 업데이트하기 힘듬 정리가 필요
+로그인 템플릿 깃헙 로그인 url을 "/users/github/start" 로
+라우터와 컨트롤러 만들고 컨트롤러에 https://github.com/login/oauth/authorize 를 baseUrl로
+config 객체도 생성 (scope 는 공백으로 분리)
+URLSearchParams(config).toString() 을 이용해서 url로 만듬!!!
+base, final 나눠서 멋진 url 시스템을 만듬
+
+authorize 버튼을 누르면 우리가 설정했던 (oauth 앱에서 설정한) callback 주소로 리다이렉트됨
+리다이렉트될떄 코드와 함께 리다이렉트됨!
+이제 해당 라우터를 만들어줌
+oauthi 앱 콜백을 http://localhost:5000/users/github/finish 로
+finish 라우터와 컨트롤러 만듬

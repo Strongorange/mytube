@@ -129,3 +129,10 @@ locals에 loggedInUser 를 세션 유저를 집어넣음
 7-11
 현재는 서버 재시작하면 session 을 저장하고있는 session store 가 초기화되서 모든 로그인이 끊김
 => mongoDB 에 session store를 저장해서 다음에 해결
+
+7-12
+session id 는 쿠기에 저장하지만 데이터 자체는 서버에 저장
+세션을 DB에 저장하기위해 session store 사용 => npm i connect-mongo
+https://www.npmjs.com/package/connect-mongo
+DB 에 sessions 콜렉션이 생김
+이제 서버 재시작해도 session 이 남아있음

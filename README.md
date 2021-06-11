@@ -159,3 +159,15 @@ maxAge: 20000 => 20초 (MS로 계산)
 .env에 코드에 들어가면 안되는 값을 넣음 (secret) 관습적으로 .env 안에는 모드ㅜ 대문자로 작성
 어떻게 .env에 접근할까?
 process.env.DB_URL 처럼 사용 => 에러 발생 무언가를 해야하는 듯
+
+7-15
+dotenv 패키지 설치
+가능한 제일 먼저 dotenv 임포트
+근데 db에서 오류 발, 지금은 임포트를 server.js 에서 함
+우리의 서버는 init.js 에서 시작함 server에서 실행하면 제일 먼저가 아님! =>> init 에 dotenv 임포트
+근데 아직도 안 됨 => require로 임포트해서, require로 임포트하면 dotenv를 사용하고싶은 모든 파일에 require 추가해야함
+매우 번거로움
+그래서 다신에 require 를 import로 수정
+require("dotenv).config() => import "dotenv/config";
+성공!
+이렇게 cookie secret 과 db_url 을 보호

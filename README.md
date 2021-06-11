@@ -248,3 +248,22 @@ tokenRequest 안에 access_token 있을때로 조건문 수정
 조건문 안에도 await 안에 await => fetch 요청이 돌아오면 해당 fetch의 json을 받는 개념
 
 다 가져옴! 근데 email 이 null 값임 => email이 없거나 private 인 경우 => 다른 request 를 만듬
+
+7-20
+private 이메일인 경우 null 되는것을 해결하기 위해서 동일한 access_token 을 사용해서 해결
+https://docs.github.com/en/rest/reference/users#list-email-addresses-for-the-authenticated-user
+모든 email 을 보여주기
+emailData 도 만듬 형식은 동일
+두 가지 데이터를 얻음 하나는 공개된 나의 데이터 하나는 나의 모든 이메일 정보
+console 참조
+이제 primary와 verified 가 모두 true 인 email 을 찾아야함
+[ { email: 'chanhwi.lee6@gmail.com',
+primary: true,
+verified: true,
+visibility: 'private' },
+{ email: '74127841+Strongorange@users.noreply.github.com',
+primary: false,
+verified: true,
+visibility: null } ]
+
+이메일이 없다면 로그인 페이지로 리다이렉트

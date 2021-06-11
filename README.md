@@ -171,3 +171,20 @@ dotenv 패키지 설치
 require("dotenv).config() => import "dotenv/config";
 성공!
 이렇게 cookie secret 과 db_url 을 보호
+
+7-16
+깃헙 로그인 시작
+https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps
+깃허브 계정 => setting => Developer settings => OAuth Apps => New 앱을 만듬
+authorization callback url 에는 아무거나 넣얻 되는데 http://localhost:5000/users/github/callback 넣음 코드에서 사용함
+생성
+
+1. 유저는 깃헙 신워을 요청하기위해 깃허브로 리다이렉트 됨
+   login 템플렛에 깃허브 로그인 사이트 https://github.com/login/oauth/authorize 로 보는 링크 추가
+   헌데 파라메터들을 같이 보내줘야함
+   https://github.com/login/oauth/authorize?client_id=ccf7238f01d21f284b48
+   client_id 는 깃허브 앱 만들면 주어짐 파라메터(query?) 는 ? 로 연결
+   연결 성공 근데 우리는 public data 외에 더 많은 정보가 필요
+   scope를 이용해서 정보 더 요구 space-delimited (공백으로 구분되는)
+   https://github.com/login/oauth/authorize?client_id=ccf7238f01d21f284b48&allow_signup=false
+   &allow_signup=false 을 붙이면 깃허브 계정생성이 안 뜸 이미 있는 유저만 로그인 가능

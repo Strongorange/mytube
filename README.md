@@ -267,3 +267,13 @@ verified: true,
 visibility: null } ]
 
 이메일이 없다면 로그인 페이지로 리다이렉트
+
+7-21
+DB에 user가 하나 있는데 github 와 동일한 이메일을 가지고있는 유저가있다면?
+username 과 password 로 로그인하게 할지 같은 email 로 가입되었으니 로그인이 되게할지
+우리는 primary 하고 verified 된 이메일이 db에 있다면 로그인 시킴
+만약 없다면? 새로 가입시켜야 함
+userData 객체에있는 정보를 가지고 유저 생성!
+유저 모델에 socialOnly 추가 => 유저가 깃허브로 로그인하는지 username 으로 로그인하는지 관리
+깃허브로 계정이 생성되면 socialOnly true
+근데 이렇게 하니 password 가 모델에서 required 로 설정되서 오류 => false로 바꿈

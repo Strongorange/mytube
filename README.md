@@ -349,3 +349,15 @@ form(method="POST", enctype="multipart/form-data") 으로 form 수정
 multer 를 임포트하고 uploadFiles 생성 (req, res) 가 아닌 multer 방식 {dest: "uploads/"} 로 upload 폴더에 파일들을 저장
 multer 미들웨어는 컨트롤러 전에서 실행 uploadFiles.single("avatar") => 파일 1개를 보내고 "avatar" name 을 가진 input 에서 보냄
 이렇게 하면 컨트롤러에서 req.file 사용 가능 req.file 은 업로드한 파일
+
+8-7
+컨트롤러에서 유저 업데이트 하는 부분에 avatarUrl 에 file 의 path 를 추가해 줌
+근데 만약 사용자가 아바타를 바꾸지 않는다면? => 오류발생 path property 를 읽을 수 없음
+session 의 유저에서 아바타 url 을 가져오고 if else 사용
+file 이 존재하면 file.path 를 존재하지 않으면 avatarUrl(기존) 을 받음
+절대 DB 에 파일을 저장하면 안 됨!!!!!!!!!!!!!!!!!!!!
+DB 에는 그 파일의 위치만 저장
+edit-profile 템플릿에서 img 태그 추가 소스는 loggedInUser.avatarUrl
+엑박이뜸 => 링크를 열어보면 링크가 잘못 됨 /users/uploads/~~~ => /uploads/~~~ 가 되어야지
+src 에 "/" + 추가함 근데 그래도 안 됨
+왜냐며 express 에게 uplaods 폴더를 만들었다고 말 해준적이 없음

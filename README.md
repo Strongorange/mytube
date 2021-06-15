@@ -322,3 +322,10 @@ location
 기본적으로 findbyupdate 는 업데이트 이전의 유저를 return
 new: true 를 설정해주면 업데이트 된 유저를 return
 req.session.user = updatedUser 로 변경
+
+8-4
+비밀번호 변경
+라우터 컨트롤러 템플릿 만듬
+근데 view 폴더가 너무 지저분해서 폴더로 정리하고 ../base 로 베이스 불러오고 컨트롤러에서 users/change-password로 부름
+깃허브를 통해 계정을 만들면 비밀번호가 없기에 비밀번호 변경을 볼 수 없어야 함
+링크가 안 보이게 함

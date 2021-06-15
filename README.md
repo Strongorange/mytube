@@ -370,3 +370,14 @@ server.js 에서 설정 => 해결
 문제가 있는데 우리가 파일을 서버에 저장하고 있다는 것 => 서버 닫으면 사라짐
 나중에 파일을 우리 서버가 아닌 다른 곳에 저장할 것
 절대 DB에 파일을 저장하면 안됨 DB 에는 파일의 위치를 저장
+
+8-9
+upload video 템플릿에 비디오를 위한 label, input 을 추가 multer 는 input 의 name 을 받음
+multer 의 fileSize 를 사용해서 파일 용량 조절
+uploadFiles 라는 하나의 미들웨어를 avatarUpload, videoUpload 라는 2개의 미들웨어로 쪼갬
+limits 를 이용해서 파일 크기 조정 (byte) 단위
+비디오 업로드 컨트롤러에 fildUrl 도 업로드하게 수정 또한 모델에도 fileUrl 추가
+반드시 enctype="multipart/form-data 로 되있어야 동작!
+watch 템플릿은 컨트롤러가 보내는 비디오 오브젝트가 존재
+src 에 "/" 추가해서 비디오를 나오게 함!
+{path: fileUrl} = req.file 을 사용하면 path 의 이름을 바꿔서 저장가능!

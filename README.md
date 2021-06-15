@@ -286,3 +286,7 @@ socialOnly true 를 가진 유저는 password 로 로그인 할 수 없음
 userData 에 존재하는 avatarUrl 을 user 모델에 추가하고 깃허브 유저를 만들떄 avatarURL 도 저장되게 만듬
 
 라우터와 컨트롤러 만들고 req.session.destroy(); 로 세션을 없애 로그아웃!
+
+8-1
+edit 라우터 컨트롤러 템플릿 생성
+res.locals 에 user가 저장되어있기에 템플릿에서 바로 가져올 수 있음

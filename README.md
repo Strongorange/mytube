@@ -329,3 +329,10 @@ req.session.user = updatedUser 로 변경
 근데 view 폴더가 너무 지저분해서 폴더로 정리하고 ../base 로 베이스 불러오고 컨트롤러에서 users/change-password로 부름
 깃허브를 통해 계정을 만들면 비밀번호가 없기에 비밀번호 변경을 볼 수 없어야 함
 링크가 안 보이게 함
+
+8-5
+현재비번 새비번, 새비번확인에 따른 로직을 추가!
+모델의 pre save 비밀번호를 해쉬해주는 미들웨어는 create 와 .save() 에서 동작
+.save() 를 써야하니 session 에서 로그인된 user를 찾는다
+id 로 유저를 찾고 user.password = newPassword 하고 user.save() 로 업데이트해서 해쉬 미들웨어 실행
+session 도 업데이트 해줘야함!!!

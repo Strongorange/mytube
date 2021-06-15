@@ -296,3 +296,12 @@ res.locals 에 user가 저장되어있기에 템플릿에서 바로 가져올 �
 로그인 한 사람들이 로그인 페이지로 가는 것을 막음 => 미들웨어 생성
 라우터에서 중간에 만든 미들웨어 추가!
 .all() 을 사용해서 한번에 적용가능 (get, post, put, delete)
+
+8-3
+비디오 라우터 에도 미들웨어 넣어줌
+req.session 에는 user object 가 있음 (우리가 넣어줌 로그인 할 때)
+그것을 이용해서 user의 id를 알 수 있음
+mongoose findbyidandupdate 사용해서 업데이트
+근데 DB에서는 업데이트 되었는데 브라우저에서는 VALUE 값이 바뀌지 않음
+왜? 현재 VALUE 는 템플릿에서 처리하는데 res.locals.loggedInUser 의 값임 근데 이 값은 처음 로그인할때 생성됨
+업데이트한 시점에서도 그대로 => 업데이트할때 locals 도 바꿔줌 => session 을 업데이트 해 줌

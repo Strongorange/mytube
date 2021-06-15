@@ -336,3 +336,16 @@ req.session.user = updatedUser 로 변경
 .save() 를 써야하니 session 에서 로그인된 user를 찾는다
 id 로 유저를 찾고 user.password = newPassword 하고 user.save() 로 업데이트해서 해쉬 미들웨어 실행
 session 도 업데이트 해줘야함!!!
+
+8-6
+파일 업로드
+edit profile 에 avatar 인풋 레이블 생성
+accept="image/\*" 속성을 추가해서 이미지만 받는다고 설정
+multer 패키지 설치
+npm i multer
+multer 는 multipart form 만 지원함!!
+form(method="POST", enctype="multipart/form-data") 으로 form 수정
+미들웨어를 만들어야 함
+multer 를 임포트하고 uploadFiles 생성 (req, res) 가 아닌 multer 방식 {dest: "uploads/"} 로 upload 폴더에 파일들을 저장
+multer 미들웨어는 컨트롤러 전에서 실행 uploadFiles.single("avatar") => 파일 1개를 보내고 "avatar" name 을 가진 input 에서 보냄
+이렇게 하면 컨트롤러에서 req.file 사용 가능 req.file 은 업로드한 파일

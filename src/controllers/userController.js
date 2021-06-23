@@ -229,16 +229,13 @@ export const see = async (req, res) => {
   const {
     params: { id },
   } = req;
-  const user = await User.findById(id);
-
+  const user = await User.findById(id).populate("videos");
+  console.log(user);
   if (!user) {
     return res.status(404).render("404", { pageTitle: "User Not Found." });
   }
-  const videos = await Video.find({ owner: user._id });
-  console.log(videos);
   return res.render("users/profile", {
     pageTitle: `${user.name}`,
     user,
-    videos,
   });
 };

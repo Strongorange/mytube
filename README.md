@@ -401,3 +401,8 @@ watch function 에서 video 를 불러올때 populate 를 사용해서 db와는 
 owner 의 String id 를 사용하여 ref 인 User 에서 동일한 id 를 찾아 owner 객체를 video 객체에 추가함
 
 이제 User 가 소유한 동영상 목록을 보이게 할 것
+
+8-13
+영상을 업로드할때 owner 가 생기고 생겨난 newVideo 의 Id 를 User 의 videos 배열에 추가
+populate 사용해서 String id 에서 객체생성하는 새로운 user 객체를 see function 에서 사용
+근데 .save 할때마다 비밀번호가 해싱되서 이걸 해결해줘야함

@@ -385,3 +385,11 @@ src 에 "/" 추가해서 비디오를 나오게 함!
 8-10
 로그인 한 유저의 my profile 로 갈 수 있게 템플릿 수정
 url 에 있는 id 로 유저를 찾고 보냄 못 찾으면 404 렌더
+
+8-11
+비디오와 유저를 연결
+ObjectId 는 자바스크립트 기본이 아니고 mongoose 에서 사용가능
+ref 를 mongoose 에게 owner 에 id 를 저장하겠다고 알려주기 위해 사용
+User.js 에서 const User = mongoose.model("User", userSchema) 의 "User" 부분과 같은 이름이어야 함
+postUpload 에서 owner 도 업로드하게 설정
+watch 템플릿에서 오너가 아니라면 edit 과 delete 를 안보이게 설정

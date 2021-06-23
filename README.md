@@ -393,3 +393,11 @@ ref 를 mongoose 에게 owner 에 id 를 저장하겠다고 알려주기 위해 
 User.js 에서 const User = mongoose.model("User", userSchema) 의 "User" 부분과 같은 이름이어야 함
 postUpload 에서 owner 도 업로드하게 설정
 watch 템플릿에서 오너가 아니라면 edit 과 delete 를 안보이게 설정
+
+8-12
+populate 를 이용 postUpload 에 video 에 .populate 하고 owner 를 적으면 owner 오브젝트를 비디오에 추가해 줌
+유의해야할 것이 db의 비디오의 owner 는 id 만 있는 String 이고
+watch function 에서 video 를 불러올때 populate 를 사용해서 db와는 별개의 객체를 생성하고 그 객체에 owner 객체가 들어있음
+owner 의 String id 를 사용하여 ref 인 User 에서 동일한 id 를 찾아 owner 객체를 video 객체에 추가함
+
+이제 User 가 소유한 동영상 목록을 보이게 할 것

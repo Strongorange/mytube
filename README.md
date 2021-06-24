@@ -421,3 +421,7 @@ webpack 환경설정에서는 절대결로만사용해야함
 path.resolve 는 내가 입력하는 파트들을 모아서 경로로 만들어줌
 console.log(path.resolve(\_\_dirname, "assets", "js")); => /home/chanhwi/Project/mytube/assets/js
 Babel 을 이용하게하고 mode 를 개발모드로 설정
+
+9-3
+webpack 으로 프론트를 위한 코드설정
+템플릿에 sciprt 불러오고 uploads 에서 한 것 같이 server.js 에서 static 으로 폴더를 볼 수 있게 설정

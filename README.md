@@ -406,3 +406,9 @@ owner 의 String id 를 사용하여 ref 인 User 에서 동일한 id 를 찾아
 영상을 업로드할때 owner 가 생기고 생겨난 newVideo 의 Id 를 User 의 videos 배열에 추가
 populate 사용해서 String id 에서 객체생성하는 새로운 user 객체를 see function 에서 사용
 근데 .save 할때마다 비밀번호가 해싱되서 이걸 해결해줘야함
+
+8-14
+위에서 말한 버그픽스
+비밀번호가 바뀔때만 해쉬하게하면 됨 => isModified("password") 사용해서 true 일때만 해쉬
+두번째 버그는 getEdit 컨트롤러에서 발생
+영상의 주인에게만 페이지 접속가능하게 수정해야함 postEdit, deleteVideo 에서도 같은 작업필요

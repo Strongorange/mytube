@@ -3,7 +3,9 @@ import Video, { formatHashtags } from "../models/Video";
 import User from "../models/User";
 
 export const home = async (req, res) => {
-  const videos = await Video.find({}).sort({ createdAt: "desc" });
+  const videos = await Video.find({})
+    .sort({ createdAt: "desc" })
+    .populate("owner");
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -124,7 +126,7 @@ export const search = async (req, res) => {
         // $regex: new RegExp(`^${keyword}`, "i"), //keyword 로 시작하는 것
         // $regex: new RegExp(`${keyword}$`, "i"), //keyword 로 끝나는 것
       },
-    });
+    }).populate("owner");
   }
   return res.render("search", { pageTitle: "Search", videos });
 };

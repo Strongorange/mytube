@@ -437,3 +437,10 @@ webpack 설정에서 watch: true 는 콘솔을 게속 실행중 (nodemon) clean:
 프론트 코드를 저장할때 백엔드 서버도 재시작됨
 노데몬 설정을 통해 무싷는 기능을 추가 노데몬 설정에서 실행부분을 셋팅해줘서 package.json 에서도 --exec 부분을 삭제
 webpack 도 webpack.config.json 이 기본이기에 --config 부분을 지워도 작동함
+
+10 Styles
+partials 이나 mixin 을 만들면 client components 에 scss 생성
+profile, watch 같은 pug를 만들면 client screens 에 scss 생성
+
+컨트롤러에 populate 사용
+double populate => 사용해서 user 의 videos 의 owner 를 populate!

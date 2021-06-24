@@ -429,3 +429,11 @@ webpack 으로 프론트를 위한 코드설정
 9-4
 css 를 볼 수 있게 webpack 설정 webpack 은 뒤에서부터 실행해서 로더의 순서를 저렇게 함
 webpack 이 Js 파일에 css 를 집어넣음!
+
+9-5
+css 와 js 를 구분해서 변환하고 추출하고 각각의 경로에 설정
+9-6
+webpack 설정에서 watch: true 는 콘솔을 게속 실행중 (nodemon) clean: true 는 폴더를 비워주는 역할
+프론트 코드를 저장할때 백엔드 서버도 재시작됨
+노데몬 설정을 통해 무싷는 기능을 추가 노데몬 설정에서 실행부분을 셋팅해줘서 package.json 에서도 --exec 부분을 삭제
+webpack 도 webpack.config.json 이 기본이기에 --config 부분을 지워도 작동함

@@ -425,3 +425,7 @@ Babel 을 이용하게하고 mode 를 개발모드로 설정
 9-3
 webpack 으로 프론트를 위한 코드설정
 템플릿에 sciprt 불러오고 uploads 에서 한 것 같이 server.js 에서 static 으로 폴더를 볼 수 있게 설정
+
+9-4
+css 를 볼 수 있게 webpack 설정 webpack 은 뒤에서부터 실행해서 로더의 순서를 저렇게 함
+webpack 이 Js 파일에 css 를 집어넣음!

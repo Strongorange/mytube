@@ -449,3 +449,9 @@ double populate => 사용해서 user 의 videos 의 owner 를 populate!
 webpack 설정으로 videoPlayer.js 도 처리하게 해 줌
 https://developer.mozilla.org/ko/docs/Web/API/HTMLMediaElement
 참고해서 이벤트와 메소드사용해서 play pause 버튼 만듬
+
+11-2
+Mute and Unmute
+
+11-3
+input 에 input 이벤트를 넣고 volumeValue 변수를 만들고해서 볼륨 컨트롤 사용

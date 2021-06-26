@@ -467,3 +467,14 @@ Timeline 에 기능추가
 fullscreen
 https://developer.mozilla.org/ko/docs/Web/API/Fullscreen_API
 element.fullscreenElement 로 풀스크린이 잇는지 없느지 확인해서 코드 작성
+
+11-8
+마우스 커서 이벤트 작성
+마우스 떠날때 클래스를 지우는건 맞는데 떠나고 바로 들어오면 클래스를 지우기 싫은데 이때도 지워짐 이를 해결해야함
+setTimeout 메소드는 특정한 id 를 return 함!!
+이 id 를 clearTimeout 이라는 메소드에 넘겨주면 해당 타임아웃이 취소됨!!!
+
+11-9
+마우스가 비디오 안에서 가만히 있을땐 다시 컨트롤러를 숨겨줄 것
+마우스가 움직일때마다 클래스를 지우는 timeout을 하나 만들고 마우스가 움직일때마다 해당 timeout을 취소시킴
+이렇게 하면 마우스가 안 움직이면 타임아웃이 실행되고 컨트롤이 사라짐

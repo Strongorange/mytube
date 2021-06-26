@@ -459,3 +459,6 @@ input 에 input 이벤트를 넣고 volumeValue 변수를 만들고해서 볼륨
 11-4, 5
 loadedmetadata 를 사용해서 시간을 불러 올 수 있음
 new Date() 를 사용해서 시간포맷
+
+11-6
+Timeline 에 기능추가

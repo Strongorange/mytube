@@ -462,3 +462,8 @@ new Date() 를 사용해서 시간포맷
 
 11-6
 Timeline 에 기능추가
+
+11-7
+fullscreen
+https://developer.mozilla.org/ko/docs/Web/API/Fullscreen_API
+element.fullscreenElement 로 풀스크린이 잇는지 없느지 확인해서 코드 작성

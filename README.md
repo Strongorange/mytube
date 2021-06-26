@@ -444,3 +444,8 @@ profile, watch 같은 pug를 만들면 client screens 에 scss 생성
 
 컨트롤러에 populate 사용
 double populate => 사용해서 user 의 videos 의 owner 를 populate!
+
+11-1 Video Player
+webpack 설정으로 videoPlayer.js 도 처리하게 해 줌
+https://developer.mozilla.org/ko/docs/Web/API/HTMLMediaElement
+참고해서 이벤트와 메소드사용해서 play pause 버튼 만듬

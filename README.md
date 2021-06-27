@@ -548,3 +548,6 @@ https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Ar
 arraybuffer => 우리의 비디오 데이터
 정리하면 데이터를 사용하려면 binary data 를 사용하고싶으면 buffer 를 사용!
 Blob 을 만들고 Blob 을 URL 로 생성해 앞에서 만든 a.href 에 저장!
+
+14-3 Thumbnail 썸네일
+ffmpeg 사용해서 동일한 방식으로 사진 생성

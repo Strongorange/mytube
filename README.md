@@ -509,3 +509,23 @@ base 템플릿에서 main.js 를 불러와 모든 js 에서 regenerator time 이
 stream 객체를 받고 video 의 srcObject 로 stream 을 넘겨줌
 https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
 강의에는 없지만 css 를 이용해서 좌우반전 효과를주고 크기를 조절
+
+13-2 Stream 녹화
+https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder
+Media Rocorder 를 사용해서 stream 의 비디오 녹화
+버튼 클릭이 아닌 바로 비디오가 보이게하고 버튼은 녹화버튼으로 대체
+new MediaRecorder 를 생성하고 stream 을 넘겨주면 됨
+recorder event 를 사용해야 제대로 사용가능
+recorder.stop() 을 하면 ondataavailable 이벤트가 실행되며 여기서 파일이 딸려나옴
+타이머 설정하고 event.data 로 비디오 데이터 받을 수 있음
+
+13-3
+stop 을 누르면 레코더를 끝내고 데이터가 생성되면 URL.createObjectUrl() 을 사용해서
+브라우저 메모리에서만 사용가능한 URL 을 만들어 줌 => 브라우저의 메모리에 비디오 파일 저장
+생성된 비디오 파일로 비디오를 대체하기 위해서 처음에 만든 비디오에서 srcObject 를 비디오 URL 로 대체
+
+13-4
+download handler 에 a 를 하나 만들고 videoFIle 을 href로 download property 를 설정해줌
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+a.click() 하면 링크를 클릭한 것 처럼 작동함
+webm 확장자로 비디오를 저장 => 확장자는 맘대로

@@ -1,3 +1,6 @@
+import fetch from "node-fetch";
+import "regenerator-runtime/runtime.js";
+
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
 const playBtnIcon = playBtn.querySelector("i");
@@ -96,6 +99,13 @@ const handleMouseLeave = () => {
   timeoutId = setTimeout(hideControls, 2000);
 };
 
+const handleEnded = async () => {
+  const { id } = videoContainer.dataset;
+  fetch(`/api/videos/${id}/view`, {
+    method: "POST",
+  });
+};
+
 playBtn.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
@@ -103,6 +113,7 @@ timeline.addEventListener("input", handleTimeline);
 video.addEventListener("loadedmetadata", handleMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlay);
+video.addEventListener("ended", handleEnded);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handleMouseLeave);
 fullScreenBtn.addEventListener("click", handleFullScreen);

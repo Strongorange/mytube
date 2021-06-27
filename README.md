@@ -478,3 +478,17 @@ setTimeout 메소드는 특정한 id 를 return 함!!
 마우스가 비디오 안에서 가만히 있을땐 다시 컨트롤러를 숨겨줄 것
 마우스가 움직일때마다 클래스를 지우는 timeout을 하나 만들고 마우스가 움직일때마다 해당 timeout을 취소시킴
 이렇게 하면 마우스가 안 움직이면 타임아웃이 실행되고 컨트롤이 사라짐
+
+12-1, 2, 3 조회수 생성 API VIEW
+VIEW API 는 템플릿을 렌더하지 않는 리턴을 보내는데 단지 STATUS 만 보낼 수 있음
+그런데 어떻게 프론트엔드에서 URL 이 변하지 않고 API VIEW 에 요청을할까?
+videoPlyaer 로 가서 "ended" 이벤트 추가해서 fetch 로 요청을 보내면 됨
+그런데 backend 코드가 아닌 front 코드라서 req.params 로 id 를 가져오지 못 하니 요청할 url 을 만들 수 없음
+watch 템플릿에는 video 오브젝트가 전해지니 템플릿에서 비디오의 데이터를 HTML 에 저장할 수 있음
+HTML 의 data 속성 사용
+https://developer.mozilla.org/ko/docs/Learn/HTML/Howto/Use_data_attributes
+비디오 컨테이너에 비디오 아이디를 속성으로 저장함 ID를 받고 FETCH!
+그런데 return 할때 status() 만 보내면 응답에 상태코드를 추가하는 개념이고 상태자체를 보내는 것은 아님
+즉 현 status 만 보낸다면 아무것도 보내지 않고있는 것
+그래서 sendStatus() 를 사용해서 보내야 함
+항상 뭔가 끝내는 것이 중요 return 을 해줘서 연결을 끝내야 함

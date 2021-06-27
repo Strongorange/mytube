@@ -529,3 +529,22 @@ download handler 에 a 를 하나 만들고 videoFIle 을 href로 download prope
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 a.click() 하면 링크를 클릭한 것 처럼 작동함
 webm 확장자로 비디오를 저장 => 확장자는 맘대로
+
+14 FFmpeg
+모든 기기들이 webm을 이해하지는 못하기 때문에 모두가 이해하는 webm -> mp4로 변환
+WebAssembly 를 이용해서 프론트엔드에서 매우 빠른 코드를 실행할 수 있음
+ffmpeg wasm 은 비디오를 변환하기 위해서 사용자의 컴퓨터를 사용
+https://github.com/ffmpegwasm/ffmpeg.wasm
+
+ffmpeg 임포트하고 불러옴 이제부터 브라우저가 아닌 FS (파일 시스템을 사용)한다고 상상
+강의대로하면 오류남 ffmpeg 버전을 낮춰서 하니 오류 해결
+npm install @ffmpeg/ffmpeg@0.9.7 @ffmpeg/core@0.8.5
+
+만든 파일을 읽으면 엄청나게 긴 unsigned int 8 array 가 생김 이것으로 blob 을 생성해야함
+https://developer.mozilla.org/ko/docs/Web/API/Blob
+blob => binay 정보를 가진 파일
+Uint8Array 에서 binary data 에 접근하려면 .buffer 를 사용
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer
+arraybuffer => 우리의 비디오 데이터
+정리하면 데이터를 사용하려면 binary data 를 사용하고싶으면 buffer 를 사용!
+Blob 을 만들고 Blob 을 URL 로 생성해 앞에서 만든 a.href 에 저장!

@@ -445,6 +445,11 @@ profile, watch 같은 pug를 만들면 client screens 에 scss 생성
 컨트롤러에 populate 사용
 double populate => 사용해서 user 의 videos 의 owner 를 populate!
 
+https://sqlplus.tistory.com/entry/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%EC%A0%9C%EC%9E%91%EC%8B%9C-%ED%8A%B9%EC%A0%95-input-%EC%86%8D%EC%84%B1%EC%97%90%EB%A7%8C-%EC%8A%A4%ED%83%80%EC%9D%BC%EC%9D%84-%EC%A7%80%EC%A0%95%ED%95%A0%EB%95%8C-Styling-Texty-Inputs-Only
+
+!! input: not 을 사용할때 니코의 깃허브 소스코드가 아닌
+input:not([type="range"]) 로 적어주어야 정상 작동!
+
 11-1 Video Player
 webpack 설정으로 videoPlayer.js 도 처리하게 해 줌
 https://developer.mozilla.org/ko/docs/Web/API/HTMLMediaElement
@@ -492,3 +497,15 @@ https://developer.mozilla.org/ko/docs/Learn/HTML/Howto/Use_data_attributes
 즉 현 status 만 보낸다면 아무것도 보내지 않고있는 것
 그래서 sendStatus() 를 사용해서 보내야 함
 항상 뭔가 끝내는 것이 중요 return 을 해줘서 연결을 끝내야 함
+
+13 - 0, 1 Video Recorder
+client 에 recorder.js 만들고 upload 템플릿에서 임포트
+https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/getUserMedia
+
+regenerator runtime 을 각각의 js에 임포트할 수도 있지만 main.js 에 임포트하고
+base 템플릿에서 main.js 를 불러와 모든 js 에서 regenerator time 이 작동할 수 있게하는게 편리
+그런데 나는 안 됨 왜일까!!!
+
+stream 객체를 받고 video 의 srcObject 로 stream 을 넘겨줌
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/srcObject
+강의에는 없지만 css 를 이용해서 좌우반전 효과를주고 크기를 조절

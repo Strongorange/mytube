@@ -599,3 +599,18 @@ keyframes 와 animation, animation-delay 를 적절히 사용
 16 Comment 덧글
 Comment Model 을 작성 작성날짜, 속한 비디오, 작성자, 내용을 정의
 Video 와 User 는 많은 Comment 를 가질 수 있음으로 모델에 Comment 배열을 생성
+
+16-2
+client 에 commentSection.js 를 만들고 웹팩에 넣어줌
+form, textarea, btn 을 불러오고 이벤트들을 추가
+form 안에있는 버튼 or input type="submit" 클릭하면 Form 이 제출되어 페이지가 새로고침 됨 => form 의 submit 이벤트 생성
+새로고침을 멈추기 위해서 default behavior 를 멈춤 => event.preventDefault()
+어떤 비디오에 댓글을 다는지 알기위해 videoContainer 에서 id를 뽑아옴
+이제 backend 에 request 를 보내야함
+로그인 안 한 유저들에게는 커멘트 작성 창을 보여주지 않음
+이렇게하면 오류가 발생하는데 존재하지 않는 textarea, 버튼을 찾기때문
+때문에 form 을 찾고 handleSubmit 안에서 textare 와 버튼을 찾는 방식으로 해결
+
+form 에서 정보를 전달하면 req.body 에 전달되는데 body 를 만들기위해서 꼭 form 이 있어야만 하는 것은 아님
+fetch에서 body를 사용해서 데이터를 전달하면 req.body 똑같이 사용가능
+콘솔에 req.body 를 찍어보면 {} 로 나옴 우리가 원하는건 text 도 들어있는 {} 를 원함

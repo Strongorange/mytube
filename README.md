@@ -595,3 +595,7 @@ messages.형식 으로 사용가능
 base에 추가하는대신 flash 를 표시하는 mixin을 만듬
 그리고 CSS 를 추가하고 애니메이션을 넣음
 keyframes 와 animation, animation-delay 를 적절히 사용
+
+16 Comment 덧글
+Comment Model 을 작성 작성날짜, 속한 비디오, 작성자, 내용을 정의
+Video 와 User 는 많은 Comment 를 가질 수 있음으로 모델에 Comment 배열을 생성

@@ -3,6 +3,7 @@ import "regenerator-runtime/runtime.js";
 import "./db";
 import "./models/Video";
 import "./models/User";
+import "./models/Comment";
 import app from "./server";
 
 const PORT = 5000;

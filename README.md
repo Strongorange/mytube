@@ -578,3 +578,20 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
 다 하고보니 조회수가 안 올라가서 개고생
 fetch(`api/videos/${id}/view`, { method: "POST" });
 fetch(`/api/videos/${id}/view`, { method: "POST" }); => / 사용해서 절대 경로로 해줘야함, 숨은그림 찾기 맛집
+
+15 Flash Message
+https://www.npmjs.com/package/express-flash
+express-flash 모듈을 설치해서 플래시 메시지를 표시해보자
+server에 임포트하고 use 사용해서 사용
+flash 설치 이후부터 req.flash 라는 함수를 사용가능
+req.flash("error", "Not Authorized"); 처음 처음에는 형식 다음에 메시지
+
+기본적으로 req.flash를 사용하면 locals 에 locals.messages.형식 생성 => 템플릿에서 사용 가능
+if messages.error
+span=messages.error
+messages.형식 으로 사용가능
+메세지는 한번 보이고 사라지는 일회용 메세지
+
+base에 추가하는대신 flash 를 표시하는 mixin을 만듬
+그리고 CSS 를 추가하고 애니메이션을 넣음
+keyframes 와 animation, animation-delay 를 적절히 사용

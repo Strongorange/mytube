@@ -1,6 +1,7 @@
 import Video, { formatHashtags } from "../models/Video";
 // Video.find({}, (error, videos) => {});
 import User from "../models/User";
+import { async } from "regenerator-runtime";
 
 export const home = async (req, res) => {
   const videos = await Video.find({})
@@ -69,7 +70,7 @@ export const getUpload = (req, res) => {
 
 export const postUpload = async (req, res) => {
   const {
-    file: { path: fileUrl },
+    files: { video, thumb },
     body: { title, description, hashtags },
   } = req;
   const {
@@ -80,7 +81,8 @@ export const postUpload = async (req, res) => {
       title,
       description,
       hashtags: Video.formatHashtags(hashtags),
-      fileUrl,
+      fileUrl: video[0].path,
+      thumbUrl: thumb[0].path,
       owner: _id,
     });
     const user = await User.findById(_id);
@@ -132,11 +134,9 @@ export const search = async (req, res) => {
 };
 
 export const registerView = async (req, res) => {
-  const {
-    params: { id },
-  } = req;
-
+  const { id } = req.params;
   const video = await Video.findById(id);
+  console.log(id);
   if (!video) {
     return res.sendStatus(404);
   }

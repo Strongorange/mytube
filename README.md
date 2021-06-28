@@ -564,3 +564,17 @@ downloadFile 함수를 만들어서 중복되는 a 만들고 클릭하는 부분
 다운로드가 끝난 후 다시 버튼을 활성화 시키고 start 함수로 가는 이벤트를 추가해서 다시 녹화할 수 있게 설정
 
 DB 에 thumbUrl 을 추가하고 템플릿에서 input, label 추가
+
+14-6
+https://www.npmjs.com/package/multer
+multer 에서 여러개의 파일을 전송 가능 => .filed 를 이용
+이렇게 하면 req.file 을 기다리고있는 컨트롤러에서 오류가 발생 req.files 를 사용해야함
+req.files 로 하면 배열안의 객체가되서 배열안의 객체를 사용해서 업로드시 fileUrl 과 thumbUrl 수정
+믹스인 템플릿에서 style=`` 을 사용해서 생성된 thumbUrl 을 지정
+css 를 사용해서 background-position, backgorund-size 를 지정
+https://developer.mozilla.org/ko/docs/Web/CSS/background-size
+https://developer.mozilla.org/en-US/docs/Web/CSS/background-position
+
+다 하고보니 조회수가 안 올라가서 개고생
+fetch(`api/videos/${id}/view`, { method: "POST" });
+fetch(`/api/videos/${id}/view`, { method: "POST" }); => / 사용해서 절대 경로로 해줘야함, 숨은그림 찾기 맛집

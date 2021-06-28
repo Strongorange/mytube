@@ -1,4 +1,4 @@
-import fetch from "node-fetch";
+const { default: fetch } = require("node-fetch");
 import "regenerator-runtime/runtime.js";
 
 const video = document.querySelector("video");
@@ -99,11 +99,9 @@ const handleMouseLeave = () => {
   timeoutId = setTimeout(hideControls, 2000);
 };
 
-const handleEnded = async () => {
+const handleEnded = () => {
   const { id } = videoContainer.dataset;
-  fetch(`/api/videos/${id}/view`, {
-    method: "POST",
-  });
+  fetch(`/api/videos/${id}/view`, { method: "POST" });
 };
 
 playBtn.addEventListener("click", handlePlay);

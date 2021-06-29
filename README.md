@@ -638,3 +638,9 @@ express 는 string 을 JSON 으로 변환해주는 미들웨어가 존재 => app
 모든 백엔드로 보내는 request 는 쿠키와 함께 옴 우리가 쿠키를 보내면 쿠키ID 의 세션을 찾아봄
 프론트에서 fetch 로 요청을 보내면 videoController 에서 쓸 무언가가있음 => req.session.user
 작성후 textarea 를 비우고 comment 모델을 이용해서 comment 생성
+
+16-6
+덧글을 생성하고 생성된 댓글의 id 를 비디오에 넣어줘야함
+watch 에서 불러오는 video 에 comments 를 populate 하고 watch 템플릿에서 댓글을 보이게 만듬
+그런데 새로운 댓글이 아래로 가고 오래된 댓글이 위로 올라감
+pug 는 JS 를 실행가능 video.comments.reverse(); 사용해서 순서를 바꿀 수 있음

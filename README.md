@@ -633,3 +633,8 @@ express 는 string 을 JSON 으로 변환해주는 미들웨어가 존재 => app
 이렇게만하면 안되고 EXPRESS 에게 우리는 TEXT 를 보내느게 아니라 JSON 을 보내고있다고 알려줘야함
 =>REQUEST 의 정보를 담고있는 Headers 에 REQUEST 의 CONTENT TYPE 을 지정
 =>EXPRESS 에게 우리가 텍스트를 보내고있지만 JSON 텍스트이니 JSON 으로 바꿔서 알아들으라고 하는 것
+
+16-5
+모든 백엔드로 보내는 request 는 쿠키와 함께 옴 우리가 쿠키를 보내면 쿠키ID 의 세션을 찾아봄
+프론트에서 fetch 로 요청을 보내면 videoController 에서 쓸 무언가가있음 => req.session.user
+작성후 textarea 를 비우고 comment 모델을 이용해서 comment 생성

@@ -614,3 +614,22 @@ form 안에있는 버튼 or input type="submit" 클릭하면 Form 이 제출되�
 form 에서 정보를 전달하면 req.body 에 전달되는데 body 를 만들기위해서 꼭 form 이 있어야만 하는 것은 아님
 fetch에서 body를 사용해서 데이터를 전달하면 req.body 똑같이 사용가능
 콘솔에 req.body 를 찍어보면 {} 로 나옴 우리가 원하는건 text 도 들어있는 {} 를 원함
+
+form 에서 정보를 제공할떄 body로 받을 수 있는 것은 urlencoded 미들웨어 덕분에 가능
+이제 서버가 fetch 로 부터 데이터를 이해해야함 보통 fetch 는 JSON 형식으로 데이터를 전송
+우리 데이터도 JSON 화 시켜서 전송
+
+브라우저에서 오브젝트를 만들고 전송하면 서버는 이걸 받아서 STRING 으로 만들어버림
+NETWORK 탭에서보면 우리가 보낸 TEXT 가 [Object Object] 로 변환되어서 나타남 => obj.toString() 하면 이렇게 나옴
+그래서 body 에 obj 이 아닌 text 자체를 보내주면 작동
+server 에서 app.use(express.text()); 를 추가하면 body에 있는 text 를 백엔드에서 받을 수 있음!
+근데 한가지만 보낼떄는 문제가 없는데 한 가지 이상 (댓글, 평점....) 등을 보낼떄는 object 를 보내야하는데 이럴떄는 작동 안 함
+=> [object object] 으로 나오는 것을 string 으로 바꿔줘야함 => JSON.stringify 라는 것을 사용
+JS.stringify 는 JS object 를 받아서 string 으로 리턴
+body: JSON.stringify({text: "I like it", rating: 5}) => {text: "I like it", rating: 5} 콘솔에 출력
+그런데 req.body.text, req.body.rating 으로 꺼내보려면 undefined => 위의 객체처럼 보이는건 사실 객체가 아니라 text(string)
+express 는 string 을 JSON 으로 변환해주는 미들웨어가 존재 => app.use(express.json()); 사용시 위의 텍스트를 진짜 JSON 으로 변환해줌
+프론트에서는 실제로는 텍스트인 객체에 정보를 담아서 백엔드에 전송하고 백엔드에서는 객체같은 데이터를 실제 객체로 만들어줌
+이렇게만하면 안되고 EXPRESS 에게 우리는 TEXT 를 보내느게 아니라 JSON 을 보내고있다고 알려줘야함
+=>REQUEST 의 정보를 담고있는 Headers 에 REQUEST 의 CONTENT TYPE 을 지정
+=>EXPRESS 에게 우리가 텍스트를 보내고있지만 JSON 텍스트이니 JSON 으로 바꿔서 알아들으라고 하는 것

@@ -654,3 +654,15 @@ fetch를 하면 backend 에서 statusCode 를 return 해줌 이 statusCode 가 �
 addComment 라는 함수를 만들고 videoComments 에 .video\_\_comments 의 ul 을 지정
 JS 로 ELEMENT 들을 만들고 HTML 에 표시해서 실시간으로 생성되는 것 처럼 보이게함
 그런데 덧글이 새로운 것이 아래로 내려감 => appendChild 대신 prepend 로 넣으면 위로 올라감
+
+19-8 댓글 지우기, Delete Comment
+내가 댓글의 주인일때만 X 표시가 보이게 함 => 버튼을 클릭하고 FETCH REQUEST 를 보내느 사람이 댓글의 작성자가 맞는지 체크
+FETCH METHOD 에 DELETE 를 사용할 수 있음
+댓글을 지우려면 지우려는 댓글의 Id 를 알아야함 실시간이 아닌 생성된 커멘트의 경우 dataset 을 이용해서 알 수 있는데
+실시간 가짜 댓글은 그렇게 ID 를 알 수 없음
+videoController 에서 댓글을 만들때 statusCode 만 201로 넘겨주는게 아니라 JSON 으로 생성된 댓글의 id 를 넘겨줄 것
+백엔드의 response 로 JSON 을 잘 받았는데 어떻게 추출할까? => response 를 콘솔로 찍으면 JSON 이 콘솔에서는 보이지 않음
+=> BODY 를 추출해야함 => 그 RESPONSE 의 JSON 을 얻어야 함 => await response.json(); => 사용할 수 있는 객체생김
+addComment 함수에 아이디를 반환하고 newComment 에 dataset 을 이용해서 id 를 추가해 줌
+
+=> api fetch 를 할때 백엔드에서 return 을 json 으로 할 수도 있음을 배움

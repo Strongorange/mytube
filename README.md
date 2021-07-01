@@ -644,3 +644,13 @@ express 는 string 을 JSON 으로 변환해주는 미들웨어가 존재 => app
 watch 에서 불러오는 video 에 comments 를 populate 하고 watch 템플릿에서 댓글을 보이게 만듬
 그런데 새로운 댓글이 아래로 가고 오래된 댓글이 위로 올라감
 pug 는 JS 를 실행가능 video.comments.reverse(); 사용해서 순서를 바꿀 수 있음
+
+16-7
+fetch 에 await 가 없으면 페이지가 새로고침될때 요청이 끝나지 않았다면 깔끔하지 않으니 await 추가해줌
+fetch를 하면 backend 에서 statusCode 를 return 해줌 이 statusCode 가 성공일때만 댓글을 보여주고싶음
+=> fetch 의 Promise Response 를 받아봄 => 안에 status 라는 것이 있고 우리가 지정한대로 성공시 201
+=>201 시 템플릿에 덧글이 달린 것 처럼 만듬
+
+addComment 라는 함수를 만들고 videoComments 에 .video\_\_comments 의 ul 을 지정
+JS 로 ELEMENT 들을 만들고 HTML 에 표시해서 실시간으로 생성되는 것 처럼 보이게함
+그런데 덧글이 새로운 것이 아래로 내려감 => appendChild 대신 prepend 로 넣으면 위로 올라감

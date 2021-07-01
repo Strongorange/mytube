@@ -655,7 +655,7 @@ addComment 라는 함수를 만들고 videoComments 에 .video\_\_comments 의 u
 JS 로 ELEMENT 들을 만들고 HTML 에 표시해서 실시간으로 생성되는 것 처럼 보이게함
 그런데 덧글이 새로운 것이 아래로 내려감 => appendChild 대신 prepend 로 넣으면 위로 올라감
 
-19-8 댓글 지우기, Delete Comment
+16-8 댓글 지우기, Delete Comment
 내가 댓글의 주인일때만 X 표시가 보이게 함 => 버튼을 클릭하고 FETCH REQUEST 를 보내느 사람이 댓글의 작성자가 맞는지 체크
 FETCH METHOD 에 DELETE 를 사용할 수 있음
 댓글을 지우려면 지우려는 댓글의 Id 를 알아야함 실시간이 아닌 생성된 커멘트의 경우 dataset 을 이용해서 알 수 있는데
@@ -666,3 +666,11 @@ videoController 에서 댓글을 만들때 statusCode 만 201로 넘겨주는게
 addComment 함수에 아이디를 반환하고 newComment 에 dataset 을 이용해서 id 를 추가해 줌
 
 => api fetch 를 할때 백엔드에서 return 을 json 으로 할 수도 있음을 배움
+
+16-9
+내가 쓴 댓글에만 X 버튼 출력
+X 버튼 누르면 실시간 댓글 사라짐 =) FETCH REQUEST 후에 사라져야 함, METHOD 는 DELETE 로
+/api/comments/${commendID} 같은 형식으로 사용 가능
+body 필요없이 ID 로 지우는 것이므로 FETCH 에는 내용 크게 없음 URL 에 ID만 전송하면 될 듯
+
+백엔드에서 내가 댓글의 작성자인지 확인하도록 해야함 SESSION 사용하면 될 듯

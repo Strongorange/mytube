@@ -672,5 +672,4 @@ addComment 함수에 아이디를 반환하고 newComment 에 dataset 을 이용
 X 버튼 누르면 실시간 댓글 사라짐 =) FETCH REQUEST 후에 사라져야 함, METHOD 는 DELETE 로
 /api/comments/${commendID} 같은 형식으로 사용 가능
 body 필요없이 ID 로 지우는 것이므로 FETCH 에는 내용 크게 없음 URL 에 ID만 전송하면 될 듯
-
 백엔드에서 내가 댓글의 작성자인지 확인하도록 해야함 SESSION 사용하면 될 듯
